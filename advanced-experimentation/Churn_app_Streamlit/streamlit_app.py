@@ -15,13 +15,14 @@ import plotly.express as px
 from PIL import Image
 
 #read prediction data that we saved as a csv file while working on the ai_accelerator_modelInsights_streamlit_v1.ipynb notebook
-predictions = pd.read_csv('prediction_output.csv',index_col=False)
+root_folder_path = './advanced-experimentation/Churn_app_Streamlit/'
+predictions = pd.read_csv(root_folder_path+'prediction_output.csv',index_col=False)
 
 max_rows = predictions.shape[0] #calculates the number of rows in predictions dataset
 
 
 #--------setting page config -------------------------------------------------------
-im = Image.open("DR_icon.jpeg")
+im = Image.open(root_folder_path+'DR_icon.jpeg')
 st.set_page_config(
     page_title="Customer Churn Prediction", #edit this for your usecase
     page_icon=im, #Adds datarobot logo to the app tab
@@ -37,7 +38,7 @@ with col1:
     st.markdown('_Allows you to access churn score/top churn reason (using Datarobot prediction explanations) and \
                 drill down on customers based on their top churn reason_')
 with col2:
-    st.image('./DR_icon.jpeg', width=50) #Image for logo
+    st.image(root_folder_path+'./DR_icon.jpeg', width=50) #Image for logo
     st.caption("**_Powered by Datarobot_**")
 
 
