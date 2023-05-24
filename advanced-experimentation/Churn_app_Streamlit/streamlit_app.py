@@ -15,13 +15,13 @@ import plotly.express as px
 from PIL import Image
 
 #read prediction data that we saved as a csv file while working on the ai_accelerator_modelInsights_streamlit_v1.ipynb notebook
-predictions = pd.read_csv('./prediction_output.csv',index_col=False)
+predictions = pd.read_csv('prediction_output.csv',index_col=False)
 
 max_rows = predictions.shape[0] #calculates the number of rows in predictions dataset
 
 
 #--------setting page config -------------------------------------------------------
-im = Image.open("./DR_icon.jpeg")
+im = Image.open("DR_icon.jpeg")
 st.set_page_config(
     page_title="Customer Churn Prediction", #edit this for your usecase
     page_icon=im, #Adds datarobot logo to the app tab
