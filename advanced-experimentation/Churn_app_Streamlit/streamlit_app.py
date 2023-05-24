@@ -82,9 +82,10 @@ with st.container():
                                     .sort_values(by='Churn_Value_1_PREDICTION' ,ascending= False)\
                                     .reset_index(drop=True).head(display_rows)
     #Plot to show top churn reason
-    plot_df = predictions_subset['EXPLANATION_1_FEATURE_NAME'].value_counts().reset_index()\
-                              .rename(columns = {'index':'Feature_name', 'EXPLANATION_1_FEATURE_NAME':'customers'})\
-                                  .sort_values(by='customers' )
+    plot_df = predictions_subset['EXPLANATION_1_FEATURE_NAME'].value_counts().reset_index()
+    plot_df = plot_df.rename(columns = {'index':'Feature_name', 'EXPLANATION_1_FEATURE_NAME':'customers'})\
+                                  .sort_values(by='customers')
+   
     fig = px.bar(plot_df, x= 'customers', y= 'Feature_name', orientation='h',title = "Top churn reason distribution")
  
 with st.container():
